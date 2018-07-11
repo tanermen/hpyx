@@ -10,5 +10,30 @@
     display:flex;
     justify-content:space-between;
     align-items: center;
+
+    .left{
+        font-size: 0.3rem;
+        width:0.43rem;
+        text-align: center;
+    }
+    .center{
+        width:2.76rem;
+        height:0.33rem;
+        background: #fff;
+        border: solid 0.01rem #DEDEDE;
+        border-radius: 0.1rem;
+        display: flex;
+        align-items: center;
+        color: #BBB;
+        i{
+            margin: 0 0.1rem;
+        }
+    }
+    .right{
+        font-size: 0.4rem;
+        width:0.43rem;
+        text-align: center;
+
+    }
 }
 

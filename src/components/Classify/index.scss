@@ -1,0 +1,60 @@
+@import "../../stylesheets/_base.scss";
+.app-classify{
+    padding-top:0.43rem;
+    .classifies{
+        display:flex;        
+        .total-categories{
+            width: 0.85rem; 
+            height: 100%;
+            li{
+                height:0.35rem;
+                font-size: 0.14rem;
+                line-height: 0.35rem;
+                color: #444;
+                text-align: center;
+                width: 100%;
+                border-bottom: 0.01rem solid#EEE;
+                &.active{
+                    background: #fff;
+                    color: $base-color;
+                    border-left:0.02rem solid $base-color;
+                }
+            }
+        }
+        .category{
+            background-color: #FCFCFC; 
+            flex:1;
+            .category-title{
+                width:100%;
+                height:1.28rem;
+                padding:0.08rem;
+                img{
+                    width:100%;
+                    height:1rem;
+                }
+            }
+            .category-detail{
+                width:100%;
+                display:flex;
+                flex-wrap:wrap;
+                dl{ 
+                    width:33.3%;
+                    margin:0.1rem 0;
+                 dt{
+                    height:0.8rem;
+                    width:0.8rem;
+                    img{
+                        height:0.6rem;
+                        width:0.6rem; 
+                        margin:0 auto;  
+                    }
+                 }
+                 dd{
+                    width:100%;
+                    text-align:center;
+                 }
+                }                
+            }
+        }
+    }
+}

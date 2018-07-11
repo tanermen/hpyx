@@ -8,7 +8,8 @@ class AppCommonHeader extends Component{
                     <i className="fa fa-angle-left"></i>
                 </div>
                 <div className="center search">
-
+                    <i className="fa fa-calendar"></i>
+                    <span>六鳌红蜜薯</span>
                 </div>
                 <div className="right more">
                     <span>···</span>
