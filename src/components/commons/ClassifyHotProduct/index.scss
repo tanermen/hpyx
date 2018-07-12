@@ -5,6 +5,8 @@
        img{
         width:100%;
         height: 1.56rem;
+        background:#fff;
+        border:none;
        }
        .hot_products{
         display: flex;
@@ -31,4 +33,7 @@
            }
        }
        
+    }
+    .p_padding-top{
+      padding-top: 0.8rem;
     }

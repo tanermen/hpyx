@@ -22,12 +22,10 @@ class HomeHeader extends Component{
 
     renderFindNav(){
         let { find_nav } =this.state
-      return  find_nav.map( item => <div onClick ={changeBygc_id.bind(null,gc_id)} 
+        let { changeBygc_id,gc_id }=this.props
+      return  find_nav.map( item => <div onClick ={changeBygc_id.bind(null,item.gc_id)} 
                     className={'swiper-slide ' + (gc_id===item.gc_id ? 'active' : '')}
                 key={item.id}>{item.title}</div>)
-    }
-    changeBygc_id(){
-     
     }
     render(){
         return (

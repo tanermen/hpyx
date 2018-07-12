@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './ClassifyHotProduct.scss'
+import './index.scss'
 /*
 **@params:gc_id 产品分类类型代号，big_img_url：大图片的路径（不是动态渲染的）
 */
@@ -23,31 +23,39 @@ class ClassifyHotProduct extends Component{
                 gc_id: gc_id
             }
         }).then(res=>{
-           //console.log(res.data.datas.goods_list)
+          // console.log(res.data.datas.goods_list)
             this.setState({HotProduct:res.data.datas.goods_list.slice(2,8)})
         })
     }
     renderClassifyHotProduct(){
         let { HotProduct } = this.state
-        //console.log(HotProduct)
+       // console.log(HotProduct)
        return HotProduct.map(item => (
             <div className='product_block' key={item.goods_id}>
                 <img  className='product_img' src = {item.goods_image_url} alt=''/>
                 <span className="prodouct_name">{item.goods_name}</span>
                 <span className='prodouct_price'>￥{item.goods_price}</span>
             </div>
-            ) )
+            ))
     }
     componentDidMount(){//组件挂载完成时获取数据
       let { gc_id } = this.props
-        this.getClassifyHotProduct(gc_id)
+      //console.log(this.props.gc_id)
+         this.getClassifyHotProduct(gc_id)
+       
     }
-
+   componentWillUpdate(props){//当点击按钮,接收属性发生变化，重新获取数据
+    if(this.props.gc_id !== props.gc_id){
+         this.getClassifyHotProduct(props.gc_id)
+      }
+   }
     render(){
-        let { big_img_url,gc_id } = this.props
+        let { big_img_url,gc_id ,isPadding} = this.props
        // console.log(big_img_url,gc_id)
         return(
-                <div className='home_hot_product'>
+                <div className={
+                  isPadding? 'home_hot_product p_padding-top':'home_hot_product' 
+                }>
                     <img src={big_img_url} alt=''/>
                     <div className='hot_products'>
                          { this.renderClassifyHotProduct() }

@@ -1,0 +1,19 @@
+.app_footer{
+    position: fixed;
+    bottom:0;
+    height:0.49rem;
+    display:flex;
+    justify-content: space-around;
+    background: #fff;
+    .app_footer_block{
+        width:0.75rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 0.14rem;
+        i{
+            font-size: 0.2rem !important;
+        }
+    }
+}
