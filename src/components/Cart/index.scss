@@ -1,0 +1,45 @@
+.app-cart{
+    padding-top:0.43rem;
+    .empty-cart{
+        width:2.2rem;
+        height:1.8rem;
+        position: absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom: 0;
+        margin:auto;
+        text-align: center;
+        .cart-user{
+            width: 0.66rem;
+            height: 0.66rem;
+            margin: 0 auto;
+            background: #DDD url("http://mall.fjncjy.com/wap/images/cart_w.png") no-repeat center center;
+            background-size: 0.48rem 0.48rem;
+            border-radius: 100%;
+            margin-bottom: 0.165rem;
+        }
+        p{
+            height:0.22rem;
+            margin-bottom: 0.05rem;
+        }
+        .cart-empty-info1{
+            font-size: 0.165rem;
+            color:#333;
+        }
+        .cart-empty-info2{
+            font-size: 0.121rem;
+            color:#999;
+        }
+        .cart-to-index{
+            width:0.68rem;
+            height:0.27rem;
+            color:#555;
+            background: #fff;
+            line-height: 0.27rem;
+            font-size:0.132rem;
+            border-radius: 0.01rem;
+            border:0.01rem solid #ccc;
+        }
+    }
+}
