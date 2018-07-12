@@ -1,3 +1,4 @@
+@import '../../../stylesheets/_base.scss';
 .app_footer{
     position: fixed;
     bottom:0;
@@ -5,6 +6,7 @@
     display:flex;
     justify-content: space-around;
     background: #fff;
+    z-index:999;
     .app_footer_block{
         width:0.75rem;
         display: flex;
@@ -14,6 +16,9 @@
         font-size: 0.14rem;
         i{
             font-size: 0.2rem !important;
+        }
+        &.active{
+            color: $base-color;
         }
     }
 }

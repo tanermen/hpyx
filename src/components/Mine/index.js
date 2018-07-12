@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import './index.scss'
 import MineTop from './MineTop'
 import MineInfos from './MineInfos'
+import AppFooter from '../commons/AppFooter'
 
 
 class Mine extends Component{
@@ -12,6 +13,7 @@ class Mine extends Component{
                 <div className="app-mine-infos">                
 
                 </div>
+                <AppFooter/>
             </div>
             )
     }
