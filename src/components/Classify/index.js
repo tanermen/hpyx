@@ -41,7 +41,7 @@ class Classify extends Component{
         let {categories,details,gc_id,image} = this.state
         return(
             <div className="app-classify">
-                <AppCommonHeader/>
+                <AppCommonHeader renderTitle={true}/>
                 <div className="classifies">
                     <Categories changeCategory = {this.changeCategory} gc_id={ gc_id }/>
                     <CategoryDetail details={details}  image={image}/>
