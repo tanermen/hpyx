@@ -16,6 +16,11 @@ class AppCommonHeader extends Component{
         if(toLogin) return(<i className="fa fa-cog"></i>)
         return(<i className="fa fa-chevron-left"></i>)
     }
+    renderRight(){
+        let { rcontent } = this.props
+        if(rcontent) return(<span>{rcontent}</span>)
+        return (<span>···</span>)
+    }
     render(){
         return(
             <div className="app-common-header">
@@ -24,7 +29,7 @@ class AppCommonHeader extends Component{
                 </div>
                 {this.renderSearch()}
                 <div className="right more">
-                    <span>···</span>
+                {this.renderRight()}
                 </div>
             </div>
         )
