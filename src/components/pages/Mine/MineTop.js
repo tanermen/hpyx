@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import AppCommonHeader from '../commons/AppCommonHeader'
+import AppCommonHeader from '../../commons/AppCommonHeader'
 
 class MineTop extends Component{
     constructor(props){

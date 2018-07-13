@@ -2,10 +2,10 @@ import React,{Component} from 'react'
 import HomeHeader from './HomeHeader'
 import HomeBanner from './HomeBanner'
 import HomeClassify from './HomeClassify'
-import ClassifyHotProduct from '../commons/ClassifyHotProduct'
-import AppListView from '../commons/AppListView'
-import ShowMoreProduct from '../commons/ShowMoreProduct'
-import AppFooter from '../commons/AppFooter'
+import ClassifyHotProduct from '../../commons/ClassifyHotProduct'
+import AppListView from '../../commons/AppListView'
+import ShowMoreProduct from '../../commons/ShowMoreProduct'
+import AppFooter from '../../commons/AppFooter'
 import './index.scss'
 class Home extends Component{
      constructor (props) {
@@ -104,13 +104,13 @@ class Home extends Component{
                   </div>  
                   )
                     : 
-                   (<div>
+                   (
                     <ClassifyHotProduct
                     gc_id={gc_id}
                     big_img_url='http://mall.fjncjy.com/wap/img/index_14.jpg'
                     isPadding= {true}
                     />
-                    </div>)
+                    )
                 
                 }
                 <AppFooter/>

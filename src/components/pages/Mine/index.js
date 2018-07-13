@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 import './index.scss'
 import MineTop from './MineTop'
 import MineInfos from './MineInfos'
-import AppFooter from '../commons/AppFooter'
+import AppFooter from '../../commons/AppFooter'
 
 
 class Mine extends Component{

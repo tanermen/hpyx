@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import AppFooter from '../commons/AppFooter'
+import AppFooter from '../../commons/AppFooter'
 
 import './index.scss'
 class Find extends Component{

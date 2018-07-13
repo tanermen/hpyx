@@ -1,8 +1,8 @@
-import Home from '../components/Home'
-import Classify from '../components/Classify'
-import Find from '../components/Find'
-import Cart from '../components/Cart'
-import Mine from '../components/Mine'
+import Home from '../components/pages/Home'
+import Classify from '../components//pages/Classify'
+import Find from '../components/pages/Find'
+import Cart from '../components/pages/Cart'
+import Mine from '../components/pages/Mine'
 import React from 'react'
 import {Route,Switch,Redirect} from 'react-router-dom'
 

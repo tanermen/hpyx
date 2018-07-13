@@ -1,9 +1,9 @@
 import React,{ Component } from "react"
 import "./index.scss"
-import AppCommonHeader from "../commons/AppCommonHeader"
+import AppCommonHeader from "../../commons/AppCommonHeader"
 import Categories from "./Categories"
 import CategoryDetail from "./CategoryDetail"
-import AppFooter from '../commons/AppFooter'
+import AppFooter from '../../commons/AppFooter'
 
 class Classify extends Component{
     constructor (props) {

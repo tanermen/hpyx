@@ -1,8 +1,8 @@
 import React,{ Component } from 'react'
 import "./index.scss"
-import AppCommonHeader from '../commons/AppCommonHeader'
+import AppCommonHeader from '../../commons/AppCommonHeader'
 import EmptyCart from './EmptyCart'
-import AppFooter from '../commons/AppFooter'
+import AppFooter from '../../commons/AppFooter'
 
 class Cart extends Component{
     render(){
