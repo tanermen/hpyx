@@ -31,11 +31,11 @@ class ClassifyHotProduct extends Component{
         let { HotProduct } = this.state
        // console.log(HotProduct)
        return HotProduct.map(item => (
-            <div className='product_block' key={item.goods_id}>
+            <Link to={'/productdetail/?goods_id=' + goods_id} className='product_block' key={item.goods_id}>
                 <img  className='product_img' src = {item.goods_image_url} alt=''/>
                 <span className="prodouct_name">{item.goods_name}</span>
                 <span className='prodouct_price'>￥{item.goods_price}</span>
-            </div>
+            </Link>
             ))
     }
     componentDidMount(){//组件挂载完成时获取数据

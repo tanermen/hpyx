@@ -16,8 +16,21 @@ import './modules/request'
 // 引入swiper
 import 'swiper/dist/css/swiper.min.css'
 
+// 引入router
+import{
+    BrowserRouter as Router
+} from 'react-router-dom'
+
+//引入store
+import {Provider} from 'react-redux'
+import store from './store'
+
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+    <Provider store={store}>
+    <Router><App /></Router>
+    </Provider>
+    ,document.getElementById('root'));
 registerServiceWorker();

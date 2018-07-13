@@ -1,8 +1,9 @@
 import React,{ Component } from "react"
 import "./index.scss"
-import AppCommonHeader from "../commons/AppCommonHeader"
+import AppCommonHeader from "../../commons/AppCommonHeader"
 import Categories from "./Categories"
 import CategoryDetail from "./CategoryDetail"
+import AppFooter from '../../commons/AppFooter'
 
 class Classify extends Component{
     constructor (props) {
@@ -17,7 +18,7 @@ class Classify extends Component{
     getDetails(_gc_id){
         let {gc_id} = this.state
         this.Get({
-            url: 'mobile/index.php?',
+            url: '/mobile/index.php?',
             data :{
                 act: "goods_class",
                 op: "get_child_all",
@@ -46,6 +47,7 @@ class Classify extends Component{
                     <Categories changeCategory = {this.changeCategory} gc_id={ gc_id }/>
                     <CategoryDetail details={details}  image={image}/>
                 </div>
+                <AppFooter/>
             </div>
         )
     }

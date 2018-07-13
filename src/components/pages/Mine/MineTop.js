@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import AppCommonHeader from '../commons/AppCommonHeader'
+import AppCommonHeader from '../../commons/AppCommonHeader'
 
 class MineTop extends Component{
     constructor(props){
@@ -19,7 +19,10 @@ class MineTop extends Component{
     render(){
         return(               
            <div className="mine-top">
-              <AppCommonHeader toLogin={true}/> 
+              <div className="mine-title">
+                  <i className="fa fa-cog"></i>
+                  <span>···</span>
+              </div> 
               <div className="mine-login">
                     <div className="mine-login-chicken"></div>
                     <a className="mine-to-login">点击登录</a> 
