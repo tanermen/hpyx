@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import Swiper from 'swiper'
+import {Link} from 'react-router-dom'
 
 class HomeHeader extends Component{
     constructor(props){
@@ -31,10 +32,10 @@ class HomeHeader extends Component{
         return (
             <div className='home_header'>
                 <div className='home_header_top'>
-                    <div className='search'>
+                    <Link to='/find' className='search'>
                          <i className='fa fa-search'></i>
                     请输入商品信息
-                     </div>
+                     </Link>
                     <i className='fa fa-commenting-o header_right'></i>
                 </div>
                <div className='home_header_bottom'>

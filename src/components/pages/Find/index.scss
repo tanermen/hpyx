@@ -1,0 +1,116 @@
+.app_find{
+    padding-top: 0.43rem;
+    .add_search{
+        height:0.3rem;
+        border: none;
+        outline:none;
+        position:fixed;
+        top:0.06rem;
+        z-index:1100;
+        left:0.84rem;
+    }
+    .right{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        span{
+        font-size:0.14rem;
+        
+        }
+    }
+     h3{ 
+            margin: 0.2rem;
+        }
+    .hot_product_list{
+        height: 0.8rem;
+        margin: 0.05rem;
+        span{
+            display: inline-block;
+            width:0.6rem;
+            height: 0.30rem;
+            text-align: center;
+            line-height: 0.30rem;
+            background: #fff;
+            border-radius: 0.5rem;
+        }
+
+    }
+   .search_history_box{
+       .search_history{
+            margin-left:0.1rem;
+           .history_item{
+             background:#fff;
+             padding: 0.11rem;
+             margin:0.05rem;
+            }
+       }
+        
+         .clear_history{
+            display: block;
+            width:2.78rem;
+            height:0.42rem;
+            background: #e5e5e5;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 0.42rem;
+            margin-top:0.5rem;
+            border-radius: 0.05rem;
+         }
+   }
+   .recommend_products{
+    margin-top: 0.2rem;
+    padding-bottom: 1.0rem;
+    img{
+        width:100%;
+        height:0.97rem;
+    }
+    .not_found_info{
+        margin:0.2rem auto;
+        width: 2rem;
+        height: 0.6rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        div{
+            font-size: 0.17rem;
+        }
+    }
+    .recommend_product{
+        margin-top:0.08rem;
+        height: 1.16rem;
+        display: flex;
+        background: #fff;
+       .img_box{
+        width:1.01rem;
+        height:1.01rem;
+        padding-top: 0.08rem;
+       }
+       .product_introduce{
+        flex:1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-left:0.15rem;
+       .goods_name{
+
+        width:2.5rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+       }
+       .big_text{
+        font-size: 0.14rem;
+        color:#333;
+       }
+       .goods_price{
+        color: red;
+       }
+       .goods_aomunt{
+        margin-left:0.05rem;
+          color:red;
+        }
+       }
+    }
+   }
+}
