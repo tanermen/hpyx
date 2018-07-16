@@ -4,11 +4,13 @@ import AppCommonHeader from '../../commons/AppCommonHeader'
 import DetailSwiper from './DetailSwiper'
 import DetailIntroduce from './DetailIntroduce'
 import ConnectGroup from '../../../modules/group'
-
+import {Toast} from 'antd-mobile'
+import {Link} from 'react-router-dom'
+ 
 class ProductDetail extends Component{
     constructor(props){
         super(props)
-        // console.log(this.props.cart.goods)
+        console.log(this.props.cart.goods)
         this.state={
             goods_id:Number(this.props.match.params.goods_id),
             goods_swiper_images:[],
@@ -22,6 +24,7 @@ class ProductDetail extends Component{
     }
     getProductDetail(){
         let {goods_id} = this.state
+        Toast.loading("正在加载",0);
         this.Get({
             url: 'mobile/index.php',
             data :{
@@ -38,6 +41,7 @@ class ProductDetail extends Component{
                 goods_more_info:res.data.datas.goods_hair_info
             });
             // console.log(this.state.goods_swiper_images)
+            Toast.hide();
         })
     }
     componentDidMount(){
@@ -62,7 +66,7 @@ class ProductDetail extends Component{
         this.props.addCart({
             goods_id,goods_name,goods_price,num,
             success: () => {
-                console.log(111)
+                Toast.success("加入成功！",2)
             }
         })
     }
@@ -87,10 +91,10 @@ class ProductDetail extends Component{
                             <img src="http://mall.fjncjy.com/wap/images/kefu_b.png"/>
                             <span>客服</span>
                         </a>
-                        <a className='add-cart'>
+                        <Link to='/cart' className='add-cart'>
                             <img src="http://mall.fjncjy.com/wap/images/cart_b.png"/>
                             <span>购物车</span>
-                        </a>
+                        </Link>
                         <a className='buy-now'>立即购买</a>
                         <a className='add-to-cart' onClick={this.addCart}>加入购物车</a>
 

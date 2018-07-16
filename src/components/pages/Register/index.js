@@ -85,7 +85,8 @@ submitRegisterInfo(){
                 this.infoText = res.data.datas.error
                 Toast.info(this.infoText,2)
         }else if(res.data.code===200){
-         Toast('下面该设置密码了',2)
+         Toast('下面该设置密码了,但是不想写了，直接去主页逛逛吧',5)
+          this.props.history.replace('/mine')
         }        
    })
 }
