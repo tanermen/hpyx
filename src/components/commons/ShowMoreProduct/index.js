@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import './index.scss'
 class ShowMoreProduct extends Component{
  constructor (props) {
@@ -10,7 +11,7 @@ class ShowMoreProduct extends Component{
     renderMoreProduct(){
         let { moreProducts } = this.props
      return moreProducts.map(item=>(
-                 <div className='recommend_product' key={item.goods_id}>
+                 <Link to={'/productdetail/' + item.goods_id} className='recommend_product' key={item.goods_id}>
             <div className='img_box'>
                 <img src={item.goods_image_url}/>
             </div>
@@ -20,7 +21,7 @@ class ShowMoreProduct extends Component{
                 <span className='goods_price'>￥{item.goods_price}</span>
                 <span>销量<span className='goods_aomunt'>{item.goods_fictsalenum}</span></span>
              </div>
-        </div>
+        </Link>
             ))
     }
 

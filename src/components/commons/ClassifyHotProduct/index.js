@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './index.scss'
 import { Link } from 'react-router-dom'
+
 /*
 **@params:gc_id 产品分类类型代号，big_img_url：大图片的路径（不是动态渲染的）
 */

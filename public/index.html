@@ -10,7 +10,8 @@
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-      <link rel="stylesheet" type="text/css" href="%PUBLIC_URL%/lib/font/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="%PUBLIC_URL%/lib/font/css/font-awesome.min.css">
+ 
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -21,6 +22,14 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>华埔优鲜</title>
+      <script src='https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js'>
+      <script>
+          if ('addEventListener' in document) {
+            document.addEventListener('DOMContentLoaded', function() {
+              FastClick.attach(document.body);
+            }, false);
+          }
+      </script>
   </head>
   <body>
     <noscript>
