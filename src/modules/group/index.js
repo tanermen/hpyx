@@ -43,7 +43,6 @@ const ConnectGroup = ( UIComponent, reducerOptions) => {
     }
 
     let mapDispatchToProps = dispatch => {
-        console.log(ActionCreators, 111)
         if ( !reducerOptions || !reducerOptions.length ) {
             //把所有的actionCreator都处理给它
             let actions = {}
@@ -57,7 +56,6 @@ const ConnectGroup = ( UIComponent, reducerOptions) => {
         reducerOptions.forEach(reducerOption => {
             // //如果传入的是字符串，也ok
             if ( (typeof reducerOption) === 'string' ) {
-                console.log(ActionCreators,reducerOption)
                 actions = Object.assign({}, actions, bindActionCreators(ActionCreators[reducerOption], dispatch))
             }else {
                 actions = Object.assign({}, actions,  bindActionCreators(ActionCreators[reducerOption.reducer], dispatch))

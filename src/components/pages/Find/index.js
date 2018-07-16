@@ -15,15 +15,15 @@ class Find extends Component{
             search_product_list:[]
         }
         this.searchProduct = this.searchProduct.bind(this)
+        this.keyword = ''
     }
     //获取历史搜索记录并渲染
      renderSearchHistory(){
         let { search_history } = this.props.find
-      return search_history.map(item=><span className='history_item' key={item}>{item}</span>)
+      return search_history.map(item=><span className='history_item' key={item + Math.random() }>{item}</span>)
      }
     //获取热门搜索数据及相关数据渲染
     getHotProductList(){
-
         this.Get({
             url:'mobile/index.php',
             data:{
@@ -37,13 +37,12 @@ class Find extends Component{
     componentDidMount(){
         this.getHotProductList()
         this.searchProduct()
-        
        // console.log(this.props)
     }
     renderHotProductList(){
         let { hot_product_list } = this.state
      return  hot_product_list.map(item=>
-         <span className='hot_product_list' key={item}>{item}</span>
+         <span className='hot_product_list' key={ item }>{item}</span>
        )
     }
 
@@ -51,7 +50,7 @@ class Find extends Component{
   searchProduct(){//根据搜索框的关键字获取数据
     document.getElementById('show_big_img').style.display='block'
    let { search_product_list } = this.state
-var  keyword = document.getElementsByClassName('add_search')[0].value
+   this.keyword = document.getElementsByClassName('add_search')[0].value
     this.Get({
         url:'mobile/index.php',
         data:{
@@ -59,12 +58,14 @@ var  keyword = document.getElementsByClassName('add_search')[0].value
             op: 'goods_list',
             page: '10',
             curpage: '1',
-            keyword: keyword
+            keyword: this.keyword
         }
     }).then(res=> {
-
         this.setState({search_product_list:res.data.datas.goods_list})
-
+         if(this.keyword!==''){
+            //console.log(this.keyword)
+             this.props.addSearchHistory(this.keyword)
+        }
      })
     }
 
@@ -98,6 +99,7 @@ var  keyword = document.getElementsByClassName('add_search')[0].value
 }
 
     render(){
+
         return(
                 <div className='app_find'>
                    <input  className='add_search' placeholder='六鳌红蜜薯'/>
@@ -105,7 +107,6 @@ var  keyword = document.getElementsByClassName('add_search')[0].value
                    renderTitle = {true} 
                    rcontent={'搜索'} 
                    search={this.searchProduct}
-                   addSearchHistory = {this.props.addSearchHistory}
                    />
                          <h3>热门搜索</h3>
                     <div className='hot_product_list'>

@@ -1,8 +1,9 @@
 
-import UseInfoActionCreator from '../../store/commons/actionCreator'
-import FindActionCreator from '../../store/find/actionCreator'
+import CommonsActionCreator from '../../store/commons/actionCreator'
+import CartActionCreator from '../../store/cart/actionCreator'
+
 
 export default {
-    userinfo_reducer: UseInfoActionCreator,
-    find_reducer: FindActionCreator
+    commons: CommonsActionCreator,
+    cart: CartActionCreator
 }

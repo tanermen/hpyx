@@ -36,7 +36,7 @@ class HomeHeader extends Component{
                          <i className='fa fa-search'></i>
                     请输入商品信息
                      </Link>
-                    <i className='fa fa-commenting-o header_right'></i>
+                    <Link to= '/login' className='fa fa-commenting-o header_right'></Link>
                 </div>
                <div className='home_header_bottom'>
                 <div  ref = { el => this.nav = el } className='swiper-container findNavs'>

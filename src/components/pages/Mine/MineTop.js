@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
-import AppCommonHeader from '../../commons/AppCommonHeader'
+import {connect} from 'react-redux'
+import { Link } from 'react-router-dom'
 
 class MineTop extends Component{
     constructor(props){
@@ -16,14 +17,17 @@ class MineTop extends Component{
         let { mineNavs } = this.state
         return mineNavs.map(item =><MineNavs data={item} key={item.id}/>)
     }
-    render(){
+      render(){
         return(               
            <div className="mine-top">
-              <AppCommonHeader toLogin={true}/> 
-              <div className="mine-login">
+            <div className="mine-title">
+                  <i className="fa fa-cog"></i>
+                  <span>···</span>
+              </div> 
+              <Link to='/login' className="mine-login" >
                     <div className="mine-login-chicken"></div>
-                    <a className="mine-to-login">点击登录</a> 
-              </div>
+                    <a className="mine-to-login">{this.props.commons.userInfo}</a> 
+              </Link>
               <div className="mine-nav">
                   {this.renderMineNavs()}
               </div>
@@ -41,4 +45,4 @@ const MineNavs = (props) =>{
         )
 }
 
-export default MineTop
+export default connect(state=>state)(MineTop)
