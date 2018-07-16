@@ -6,22 +6,25 @@ import ClassifyHotProduct from '../../commons/ClassifyHotProduct'
 import AppListView from '../../commons/AppListView'
 import ShowMoreProduct from '../../commons/ShowMoreProduct'
 import AppFooter from '../../commons/AppFooter'
+import { Toast} from 'antd-mobile'
 import './index.scss'
 class Home extends Component{
      constructor (props) {
         super(props)
         this.state = {
             gc_id:'0',
-            isShowIndexPage:true
+            isShowIndexPage:true,
+            moreProducts:[],
+            hasMore:true
         }
         this.curpage = 1;
-        // this.isLoading = false;
+        this.isLoading = false;
         this.changeBygc_id = this.changeBygc_id.bind(this)
         this.listenScrollBottom = this.listenScrollBottom.bind(this)
-        this.changeIsLoading = this.changeIsLoading.bind(this)
+       this.getMoreProduct = this.getMoreProduct.bind(this)
     }
-    isShowIndexPage(gc_id){
-    //let { gc_id } = this.state
+    isShowIndexPage(gc_id){//判断是否显示首页
+      //let { gc_id } = this.state
       if(gc_id!=='0') {
         this.setState({isShowIndexPage:false})
 
@@ -34,25 +37,40 @@ class Home extends Component{
      this.isShowIndexPage(gc_id)
   }
   
+ getMoreProduct(curpage){//获取数据
+       this.isLoading = true
+       Toast.loading('正在加载...', 0)
+        this.Get({
+            url:'mobile//index.php',
+            data:{
+                act: 'goods',
+                op: 'goods_list',
+                page: '10',
+                curpage: this.curpage ,
+                key: '1'
+            }
+        }).then(res=>{
+          let moreProducts = this.state.moreProducts.concat(res.data.datas.goods_list)
+            this.setState({ 
+                moreProducts:moreProducts,
+                hasMore: res.data.hasmore
+            })
+            this.isLoading = false
+            Toast.hide()
+        })
+    }
+
   listenScrollBottom(){
-    // if ( !this.isLoading ) {
-    //     return false;
-    // }else{
-    //    return  this.curpage ++;
-    // }  
-    //  console.log(this.curpage,'this.curpage')
     if (this.isLoading) return false;
       this.curpage ++;
-      //console.log(this.curpage,'this.curpage')
+      this.getMoreProduct()
   }
-  changeIsLoading(){
-    this.isLoading = ! this.isLoading
-  }
+  
+ componentDidMount () {
+        this.getMoreProduct()
+    }
     render(){
-        let { gc_id,isShowIndexPage } = this.state
-        let {curpage,isLoading} = this
-       // console.log(curpage,'curpage')
-        //console.log(isShowIndexPage,gc_id)
+        let { gc_id,isShowIndexPage,hasMore,moreProducts } = this.state
         return (
             <div className='home'>
                <HomeHeader changeBygc_id={this.changeBygc_id}  gc_id={gc_id}/>
@@ -92,14 +110,9 @@ class Home extends Component{
                 <AppListView
                 distance = { 50 }
                 scrollBottom = { this.listenScrollBottom }
-              
-
+                hasMore = {hasMore}
                    >
-                   <ShowMoreProduct 
-                   curpage={curpage} 
-                   isLoading={isLoading}
-                   changeIsLoading = {this.changeIsLoading}
-                   />
+                   <ShowMoreProduct moreProducts = { moreProducts }/>
                 </AppListView>   
                   </div>  
                   )
@@ -111,7 +124,6 @@ class Home extends Component{
                     isPadding= {true}
                     />
                     )
-                
                 }
                 <AppFooter/>
             </div>

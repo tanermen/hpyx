@@ -1,9 +1,12 @@
 import React,{Component} from 'react'
-import './index.scss'
 import MineTop from './MineTop'
 import MineInfos from './MineInfos'
 import MineClassify from './MineClassify'
 import AppFooter from '../../commons/AppFooter'
+import {connect} from 'react-redux'
+import { bindActionCreators } from 'redux'
+import actionCreator from '../../../store/commons/actionCreator'
+import './index.scss'
 
 
 class Mine extends Component{
@@ -33,6 +36,19 @@ class Mine extends Component{
                 {id: 4, title: '积分', image: 'http://mall.fjncjy.com/wap/images/mcc_10_b.png'}               
             ]
         }
+          this.judgeLogin()
+        this.exit = this.exit.bind(this)
+    }
+     judgeLogin(){
+         if ( !this.props.commons.userInfo ) {
+            this.props.history.replace('/login')
+        }
+    }
+
+     exit () {//退出登陆
+        this.props.initUserInfo()
+        this.Cookies.remove('username', { path: '/' })
+        this.props.history.replace('/login')
     }
     render(){
         let {infos,classies1,classies2} = this.state
@@ -50,11 +66,13 @@ class Mine extends Component{
                 <MineInfos info={infos[2]}/>
                 <MineInfos info={infos[3]}/>
                 <MineInfos info={infos[4]}/>
-                <MineInfos info={infos[5]}/>
+                <MineInfos info={infos[5]} exit={this.exit}/>
                 <AppFooter/>
             </div>
             )
     }
 }
 
-export default Mine
+export default connect(state=>state,dispatch=>{
+    return bindActionCreators(actionCreator, dispatch)
+})(Mine)

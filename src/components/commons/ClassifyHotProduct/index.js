@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './index.scss'
+import { Link } from 'react-router-dom'
 /*
 **@params:gc_id 产品分类类型代号，big_img_url：大图片的路径（不是动态渲染的）
 */
@@ -31,7 +32,7 @@ class ClassifyHotProduct extends Component{
         let { HotProduct } = this.state
        // console.log(HotProduct)
        return HotProduct.map(item => (
-            <Link to={'/productdetail/?goods_id=' + goods_id} className='product_block' key={item.goods_id}>
+            <Link to={'/productdetail/' + item.goods_id} className='product_block' key={item.goods_id}>
                 <img  className='product_img' src = {item.goods_image_url} alt=''/>
                 <span className="prodouct_name">{item.goods_name}</span>
                 <span className='prodouct_price'>￥{item.goods_price}</span>

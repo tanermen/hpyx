@@ -18,7 +18,7 @@ class Classify extends Component{
     getDetails(_gc_id){
         let {gc_id} = this.state
         this.Get({
-            url: '/mobile/index.php?',
+            url: 'mobile/index.php?',
             data :{
                 act: "goods_class",
                 op: "get_child_all",

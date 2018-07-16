@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-
+//zepto
+import $ from 'webpack-zepto'
+// antd-mobile
+import 'antd-mobile/dist/antd-mobile.css'; 
 // 全局引入rem
 import './modules/rem.js'
 
@@ -27,6 +30,10 @@ import store from './store'
 
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
+
+// cookie
+import Cookies from 'react-cookies'
+Component.prototype.Cookies = Cookies
 
 ReactDOM.render(
     <Provider store={store}>

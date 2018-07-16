@@ -1,0 +1,41 @@
+.more_products{
+    img{
+        width:100%;
+        height:0.97rem;
+    }
+    .recommend_product{
+        margin-top:0.08rem;
+        height: 1.16rem;
+        display: flex;
+        background: #fff;
+       .img_box{
+        width:1.01rem;
+        height:1.01rem;
+        padding-top: 0.08rem;
+       }
+       .product_introduce{
+        flex:1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-left:0.20rem;
+       .goods_name{
+        width:2.5rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+       }
+       .big_text{
+        font-size: 0.16rem;
+        color:#333;
+       }
+       .goods_price{
+        color: red;
+       }
+       .goods_aomunt{
+        margin-left:0.05rem;
+          color:red;
+        }
+       }
+    }
+   }

@@ -2,10 +2,10 @@ import React,{Component} from 'react'
 
 class MineInfos extends Component{
     renderInfo(){
-        let { info } =this.props
+        let { info,exit } =this.props
         if(info){
             return (
-                <div className="single-info">
+                <div className="single-info" onClick = {exit}>
                     <h3 className="info-left">
                         <img src={info.leftImg}/>
                         {info.left}

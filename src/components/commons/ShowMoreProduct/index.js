@@ -1,45 +1,35 @@
 import React, { Component } from 'react'
-
+import './index.scss'
 class ShowMoreProduct extends Component{
-    constructor(props){
+ constructor (props) {
         super(props)
-        this.state = {
-            MoreProducts:[]
-        }
-    }
-    getMoreProduct(curpage,isLoading,changeIsLoading){//获取数据
-     // let { curpage,isLoading } = this.props
-        changeIsLoading()
-        // console.log(curpage,'ni',isLoading)
-        this.Get({
-            url:'mobile//index.php',
-            data:{
-                act: 'goods',
-                op: 'goods_list',
-                page: '10',
-                curpage: curpage ,
-                key: '1'
-            }
-        }).then(res=>{
-            this.isLoading = false
-         // console.log(res.data.datas.goods_list,'hehe')
-            this.setState({MoreProducts:res.data.datas.goods_list})
-            changeIsLoading()
-        })
-    }
-    componentDidMount(){
-        let { curpage,isLoading,changeIsLoading} = this.props
-        this.getMoreProduct(curpage,isLoading,changeIsLoading)
-    }
-    componentWillUpdate(){
-         let { curpage,isLoading,changeIsLoading} = this.props
-        this.getMoreProduct(curpage,isLoading,changeIsLoading)
-    }
-    render(){
-       
-        return(
-                <div className='more_product'>
 
+        this.renderMoreProduct = this.renderMoreProduct.bind(this)
+    }
+
+    renderMoreProduct(){
+        let { moreProducts } = this.props
+     return moreProducts.map(item=>(
+                 <div className='recommend_product' key={item.goods_id}>
+            <div className='img_box'>
+                <img src={item.goods_image_url}/>
+            </div>
+             <div className='product_introduce'>
+                <span className='goods_name big_text'>{item.goods_name}</span>
+                <span className='goods_name'>{item.goods_jingle}</span>
+                <span className='goods_price'>￥{item.goods_price}</span>
+                <span>销量<span className='goods_aomunt'>{item.goods_fictsalenum}</span></span>
+             </div>
+        </div>
+            ))
+    }
+
+
+    render(){
+        return(
+                <div className='more_products'>
+                 <img src='http://mall.fjncjy.com/wap/img/index_145.jpg'/>
+                  {this.renderMoreProduct()}
                 </div>
             )
     }
